@@ -1,0 +1,33 @@
+<!--
+  ~ Copyright (c) 2019 by Pablo Klaschka
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+    <div class="row">
+        <div class="col">
+            <h1>Checklist runner</h1>
+            <button onclick="openChecklist()">
+                <img src="icons/folder.svg" class="icon" alt="Open (icon)" aria-hidden="true">
+                Open a checklist
+            </button>
+            <br>
+            <a>Settings</a>
+        </div>
+    </div>
+</main>
+<script>
+    const electron = require('electron');
+
+    function openChecklist() {
+        electron.ipcRenderer.sendSync('runChecklist');
+    }
+</script>
+</body>
+</html>

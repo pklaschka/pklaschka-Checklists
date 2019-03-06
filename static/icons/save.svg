@@ -1,0 +1,14 @@
+<!--
+  ~ Copyright (c) 2019 by Pablo Klaschka
+  -->
+<svg xmlns='http://www.w3.org/2000/svg'
+     viewBox='-100 -100 1200 1200' width="64px" height="64px">
+    <!-- Arrow: -->
+    <line x1="500" x2="500" y1="0" y2="800" stroke-width="80" stroke="white" />
+    <line x1="250" x2="500" y1="450" y2="800" stroke-width="80" stroke="white" />
+    <line x1="750" x2="500" y1="450" y2="800" stroke-width="80" stroke="white" />
+    <!-- Bottom: -->
+    <line x1="0" x2="1000" y1="1000" y2="1000" stroke-width="80" stroke="white" />
+    <line x1="0" x2="0" y1="600" y2="1000" stroke-width="80" stroke="white" />
+    <line x1="1000" x2="1000" y1="600" y2="1000" stroke-width="80" stroke="white" />
+</svg>

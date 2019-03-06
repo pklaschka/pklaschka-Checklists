@@ -1,0 +1,9 @@
+<!--
+  ~ Copyright (c) 2019 by Pablo Klaschka
+  -->
+<svg xmlns='http://www.w3.org/2000/svg'
+     viewBox='-100 -100 1200 1200' width="64px" height="64px">
+    <line x1="0" x2="1000" y1="500" y2="500" stroke-width="80" stroke="white" />
+    <line x1="1000" x2="500" y1="500" y2="0" stroke-width="80" stroke="white" />
+    <line x1="1000" x2="500" y1="500" y2="1000" stroke-width="80" stroke="white" />
+</svg>

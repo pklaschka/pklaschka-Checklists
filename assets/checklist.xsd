@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019 by Pablo Klaschka
+  -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="https://xdplugins.pabloklaschka.de" xmlns="https://xdplugins.pabloklaschka.de"
+  elementFormDefault="qualified">
+  <xs:element name="checklist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="meta"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="item"/>
+          <xs:element ref="screenshot"/>
+          <xs:element ref="group"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="name" use="required">
+        <xs:annotation>
+          <xs:documentation>The name of the checklist. This can – e.g. – get used as header of the report file and should therefore make the checklist identifiable for human readers</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="version" use="required" type="xs:NMTOKEN">
+        <xs:annotation>
+          <xs:documentation>The version of the checklist – useful for keeping track of changes to the checklist (will get shown in the report)</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="meta">
+    <xs:annotation>
+      <xs:documentation>Meta-information that should get filled when running the checklist</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="date"/>
+          <xs:element ref="text"/>
+          <xs:element ref="number"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="date" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>A date information. Can – e.g. – get used to ask for the date of testing</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>A text information. Can – e.g. – get used to ask for the person testing/running the checklist</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="number" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>A number information. Can – e.g. – get used to ask for the revision of this version in testing (i.e., the number of tests of the current version)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="group">
+    <xs:annotation>
+      <xs:documentation>A group of checklist items. Can get used to group certain items that might, e.g., have to get checked in a common place</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="item"/>
+        <xs:element ref="screenshot"/>
+      </xs:choice>
+      <xs:attribute name="title" use="required">
+        <xs:annotation>
+          <xs:documentation>The group's title, e.g., the location where the group's items need to get run.
+
+Example: "Main project window"</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>A "plain" checklist item</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="screenshot">
+    <xs:annotation>
+      <xs:documentation>A screenshot – instructs the checklist runner to create a screenshot when reaching this note</xs:documentation>
+    </xs:annotation>
+    <xs:complexType/>
+  </xs:element>
+</xs:schema>

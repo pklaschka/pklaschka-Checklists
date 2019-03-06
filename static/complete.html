@@ -1,0 +1,33 @@
+<!--
+  ~ Copyright (c) 2019 by Pablo Klaschka
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+    <div class="row">
+        <div class="col">
+            <h1>Checklist completed</h1>
+            <button onclick="save()">
+                <img src="icons/save.svg" class="icon" alt="Save (icon)" aria-hidden="true">
+                Save
+            </button>
+            <br>
+            <a>Settings</a>
+        </div>
+    </div>
+</main>
+<script>
+    const electron = require('electron');
+
+    function save() {
+        electron.ipcRenderer.sendSync('save');
+    }
+</script>
+</body>
+</html>

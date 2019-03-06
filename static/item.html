@@ -1,0 +1,45 @@
+<!--
+  ~ Copyright (c) 2019 by Pablo Klaschka
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+    <p id="item">
+
+    </p>
+    <div class="row">
+        <div class="col">
+            <button onclick="abort()">
+                <img src="icons/stop.svg" class="icon" alt="Stop (icon)" aria-hidden="true">
+                Abort
+            </button>
+        </div>
+        <div class="col">
+            <button onclick="submit()">
+                Continue
+                <img src="icons/arrow-right.svg" class="icon" alt="Arrow to the right (icon)" aria-hidden="true">
+            </button>
+        </div>
+    </div>
+</main>
+<script>
+    const ipcRenderer = require('electron').ipcRenderer;
+
+    document.getElementById('item').innerHTML = ipcRenderer.sendSync('requestItemText');
+
+    function abort() {
+        ipcRenderer.send('abort');
+    }
+
+    function submit() {
+        ipcRenderer.send('continue');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/*
+ * Copyright (c) 2019 by Pablo Klaschka
+ */
+
+* {
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    --background: #4B4453;
+    --input: #B0A8B9;
+    --accent: #845EC2;
+    --accent-active: #9066d3;
+    --shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
+    text-align: center;
+}
+
+:root {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: var(--background);
+    color: #F8F2FF;
+    padding: 64px 192px;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    overflow-y: auto;
+}
+
+h1,h2,h3,h4,h5,h6,p, main > * {
+    padding: 16px;
+}
+
+main {
+    width: 100%;
+    align-self: center;
+}
+
+img.icon {
+    height: 0.9em;
+}
+
+button {
+    padding: 24px;
+    background: var(--accent);
+    border: none;
+    box-shadow: var(--shadow);
+    font: inherit;
+    color: inherit;
+    transition: all 0.4s ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+    background: var(--accent-active);
+}
+
+button:active {
+    box-shadow: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.col + .col {
+    margin-left: 32px;
+}
+
+table {
+    width: 100%;
+}
+
+table td {
+    width: 50%;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+table td:first-child {
+    text-align: right;
+    padding-right: 16px;
+}
+
+table td:last-child {
+    text-align: left;
+    padding-left: 16px;
+}
+
+input {
+    font: inherit;
+    box-shadow: var(--shadow);
+    background: var(--input);
+    border: none;
+    text-align: left;
+    color: #171619;
+    padding: 13px;
+    width: 100%;
+}
+
+/* Diable user selection: */
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+input, button, textarea, :focus {
+    outline: none; // You should add some other style for :focus to help UX/a11y
+}

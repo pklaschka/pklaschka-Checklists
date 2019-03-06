@@ -1,0 +1,8 @@
+<!--
+  ~ Copyright (c) 2019 by Pablo Klaschka
+  -->
+<svg xmlns='http://www.w3.org/2000/svg'
+     viewBox='-100 -100 1200 1200' width="64px" height="64px">
+    <circle cx="500" cy="500" r="500" fill="none" stroke="white" stroke-width="80"/>
+    <line x2="146.446609407" y1="146.446609407" x1="853.553" y2="853.553" stroke="white" stroke-width="80" />
+</svg>

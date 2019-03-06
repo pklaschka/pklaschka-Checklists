@@ -1,0 +1,60 @@
+<!--
+  ~ Copyright (c) 2019 by Pablo Klaschka
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+    <h1>Meta</h1>
+    <table id="form">
+
+    </table>
+    <div class="row">
+        <div class="col">
+            <button>
+                <img src="icons/stop.svg" class="icon" alt="Stop (icon)" aria-hidden="true">
+                Abort
+            </button>
+        </div>
+        <div class="col">
+            <button onclick="submit()">
+                Continue
+                <img src="icons/arrow-right.svg" class="icon" alt="Arrow to the right (icon)" aria-hidden="true">
+            </button>
+        </div>
+    </div>
+</main>
+<script>
+    const ipcRenderer = require('electron').ipcRenderer;
+
+    const store = ipcRenderer.sendSync('requestMeta');
+    console.log(store);
+
+    for (let childNode of store.children) {
+        if (!childNode.text)
+            document.getElementById('form').innerHTML += `
+            <tr>
+            <td><label>${childNode.val}</label></td><td>
+           <input type="${childNode.name}">
+</td>
+            </tr>
+            `
+    }
+
+    function submit() {
+        let meta = {};
+
+        document.querySelectorAll('#form tr').forEach(tr => {
+            meta[tr.children[0].textContent] = tr.children[1].children[0].value;
+        });
+        console.log(meta);
+        ipcRenderer.send('submitMeta', meta);
+    }
+</script>
+</body>
+</html>

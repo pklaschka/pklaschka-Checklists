@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "name": "pklaschka-checklist",
+  "main": "main.js",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "lint": "echo No lints implemented"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.22",
+    "@electron-forge/maker-deb": "^6.0.0-beta.22",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.22",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.22",
+    "@electron-forge/maker-zip": "^6.0.0-beta.22",
+    "electron": "4.0.6"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "screenshot-desktop": "^1.6.0",
+    "xmldoc": "^1.1.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true,
+        "quiet": true,
+        "protocol": "checklist://",
+        "name": "pklaschka Checklists",
+        "icon": "assets/icon"
+      }
+    }
+  }
+}
